@@ -8,20 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		8457421F2128034B009209C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457421E2128034B009209C7 /* AppDelegate.swift */; };
-		845742212128034B009209C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845742202128034B009209C7 /* ViewController.swift */; };
+		845742212128034B009209C7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845742202128034B009209C7 /* LoginViewController.swift */; };
 		845742242128034B009209C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845742222128034B009209C7 /* Main.storyboard */; };
 		845742262128034B009209C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845742252128034B009209C7 /* Assets.xcassets */; };
 		845742292128034B009209C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845742272128034B009209C7 /* LaunchScreen.storyboard */; };
+		845742322128087B009209C7 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845742312128087B009209C7 /* Bolts.framework */; };
+		845742342128088E009209C7 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845742332128088E009209C7 /* FBSDKCoreKit.framework */; };
+		845742362128089B009209C7 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845742352128089B009209C7 /* FBSDKLoginKit.framework */; };
+		8457423E21281E0F009209C7 /* ProfilePhotosServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457423D21281E0F009209C7 /* ProfilePhotosServices.swift */; };
+		8457424021281E80009209C7 /* FrameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457423F21281E80009209C7 /* FrameViewController.swift */; };
+		8457424221281EE8009209C7 /* ProfilePhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457424121281EE8009209C7 /* ProfilePhotosViewController.swift */; };
+		8457424421282FFE009209C7 /* ProfilePhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457424321282FFE009209C7 /* ProfilePhotosModel.swift */; };
+		84574246212840D7009209C7 /* ProfilePhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84574245212840D7009209C7 /* ProfilePhotosCollectionViewCell.swift */; };
+		8457424821292B84009209C7 /* DetailedPhotoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457424721292B84009209C7 /* DetailedPhotoPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8457421B2128034B009209C7 /* MySocialPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySocialPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8457421E2128034B009209C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		845742202128034B009209C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		845742202128034B009209C7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		845742232128034B009209C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		845742252128034B009209C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		845742282128034B009209C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8457422A2128034C009209C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		845742312128087B009209C7 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		845742332128088E009209C7 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		845742352128089B009209C7 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		8457423D21281E0F009209C7 /* ProfilePhotosServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotosServices.swift; sourceTree = "<group>"; };
+		8457423F21281E80009209C7 /* FrameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameViewController.swift; sourceTree = "<group>"; };
+		8457424121281EE8009209C7 /* ProfilePhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotosViewController.swift; sourceTree = "<group>"; };
+		8457424321282FFE009209C7 /* ProfilePhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotosModel.swift; sourceTree = "<group>"; };
+		84574245212840D7009209C7 /* ProfilePhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		8457424721292B84009209C7 /* DetailedPhotoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedPhotoPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +47,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845742322128087B009209C7 /* Bolts.framework in Frameworks */,
+				845742342128088E009209C7 /* FBSDKCoreKit.framework in Frameworks */,
+				845742362128089B009209C7 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +61,7 @@
 			children = (
 				8457421D2128034B009209C7 /* MySocialPhoto */,
 				8457421C2128034B009209C7 /* Products */,
+				84574230212807E9009209C7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +77,61 @@
 			isa = PBXGroup;
 			children = (
 				8457421E2128034B009209C7 /* AppDelegate.swift */,
-				845742202128034B009209C7 /* ViewController.swift */,
+				8457423C21281DF0009209C7 /* NetWorking */,
+				8457423A21280DED009209C7 /* Login */,
+				8457423721280DA0009209C7 /* ProfilePhotos */,
+				8457423B21280E3A009209C7 /* DetailedPhoto */,
 				845742222128034B009209C7 /* Main.storyboard */,
 				845742252128034B009209C7 /* Assets.xcassets */,
 				845742272128034B009209C7 /* LaunchScreen.storyboard */,
 				8457422A2128034C009209C7 /* Info.plist */,
 			);
 			path = MySocialPhoto;
+			sourceTree = "<group>";
+		};
+		84574230212807E9009209C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				845742352128089B009209C7 /* FBSDKLoginKit.framework */,
+				845742332128088E009209C7 /* FBSDKCoreKit.framework */,
+				845742312128087B009209C7 /* Bolts.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		8457423721280DA0009209C7 /* ProfilePhotos */ = {
+			isa = PBXGroup;
+			children = (
+				8457424321282FFE009209C7 /* ProfilePhotosModel.swift */,
+				8457424121281EE8009209C7 /* ProfilePhotosViewController.swift */,
+				84574245212840D7009209C7 /* ProfilePhotosCollectionViewCell.swift */,
+			);
+			path = ProfilePhotos;
+			sourceTree = "<group>";
+		};
+		8457423A21280DED009209C7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				845742202128034B009209C7 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		8457423B21280E3A009209C7 /* DetailedPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				8457424721292B84009209C7 /* DetailedPhotoPageViewController.swift */,
+				8457423F21281E80009209C7 /* FrameViewController.swift */,
+			);
+			path = DetailedPhoto;
+			sourceTree = "<group>";
+		};
+		8457423C21281DF0009209C7 /* NetWorking */ = {
+			isa = PBXGroup;
+			children = (
+				8457423D21281E0F009209C7 /* ProfilePhotosServices.swift */,
+			);
+			path = NetWorking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +205,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				845742212128034B009209C7 /* ViewController.swift in Sources */,
+				8457424421282FFE009209C7 /* ProfilePhotosModel.swift in Sources */,
+				8457423E21281E0F009209C7 /* ProfilePhotosServices.swift in Sources */,
+				845742212128034B009209C7 /* LoginViewController.swift in Sources */,
 				8457421F2128034B009209C7 /* AppDelegate.swift in Sources */,
+				8457424221281EE8009209C7 /* ProfilePhotosViewController.swift in Sources */,
+				8457424021281E80009209C7 /* FrameViewController.swift in Sources */,
+				8457424821292B84009209C7 /* DetailedPhotoPageViewController.swift in Sources */,
+				84574246212840D7009209C7 /* ProfilePhotosCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +358,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UMGYBNMZV6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = MySocialPhoto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -300,6 +380,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UMGYBNMZV6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = MySocialPhoto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
