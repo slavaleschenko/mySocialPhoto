@@ -12,24 +12,21 @@ import FBSDKLoginKit
 class LoginViewController: UIViewController {
 
     let constants = Constants()
+    let alert = Alert()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (FBSDKAccessToken.current() != nil) {
-            self.moveToProfilePhotos()
-        } else {
-            self.setUpLoginButton()
-        }
+        checkToken()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        self.navigationController?.isNavigationBarHidden = false
+        navigationController?.isNavigationBarHidden = false
     }
     
     private func setUpLoginButton() {
@@ -40,10 +37,18 @@ class LoginViewController: UIViewController {
         self.view.addSubview(loginBtn)
     }
     
-    func moveToProfilePhotos() {
+    private func moveToProfilePhotos() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "photoCollection") as! ProfilePhotosViewController
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func checkToken() {
+        if (FBSDKAccessToken.current() != nil) {
+            moveToProfilePhotos()
+        } else {
+            setUpLoginButton()
+        }
     }
     
 }
@@ -54,6 +59,8 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
         if error != nil {
             print(error.localizedDescription)
         } else if result.isCancelled {
+            self.present(alert.showAlert(title: "Error", message: "In order to use MySocialPhoto, please sign in with Facebook"), animated: true, completion: nil)
+            
             print("User cancelled")
         } else {
             moveToProfilePhotos()

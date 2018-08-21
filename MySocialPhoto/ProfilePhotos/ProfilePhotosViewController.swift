@@ -23,7 +23,8 @@ class ProfilePhotosViewController: UIViewController, UICollectionViewDelegate, U
         configureNavigationBar()
         imageCellSpacing()
         profilePhotoServices.fetchPhotos() { profilePhotos, error in
-            self.profilePhotos = profilePhotos!
+            guard let profilePhotos = profilePhotos else { return }
+            self.profilePhotos = profilePhotos
             DispatchQueue.main.async {
                 self.myCollectionView.reloadData()
             }
