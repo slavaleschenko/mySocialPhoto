@@ -40,9 +40,9 @@ class ProfilePhotosViewController: UIViewController, UICollectionViewDelegate, U
         let cell: ProfilePhotosCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "fbPhoto", for: indexPath) as! ProfilePhotosCollectionViewCell
         
         let urlString = self.profilePhotos[indexPath.row].url
-        let imageUrl = URL(string: urlString)
+        guard let imageUrl = URL(string: urlString) else { return cell }
     
-        imageServices.getImage(withURL: imageUrl!) { (image) in
+        imageServices.getImage(withURL: imageUrl) { (image) in
             cell.myPhoto.image = image
         }
         return cell
