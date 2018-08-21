@@ -13,7 +13,8 @@ class ProfilePhotosViewController: UIViewController, UICollectionViewDelegate, U
 
     @IBOutlet weak var myCollectionView: UICollectionView!
     
-    let services = ProfilePhotoServices()
+    let profilePhotoServices = ProfilePhotoServices()
+    let imageServices = ImageServices()
     
     var profilePhotos = [ProfilePhotosModel]()
     
@@ -21,9 +22,11 @@ class ProfilePhotosViewController: UIViewController, UICollectionViewDelegate, U
         super.viewDidLoad()
         configureNavigationBar()
         imageCellSpacing()
-        services.fetchPhotos() { profilePhotos in
-            self.profilePhotos = profilePhotos
-            self.myCollectionView.reloadData()
+        profilePhotoServices.fetchPhotos() { profilePhotos, error in
+            self.profilePhotos = profilePhotos!
+            DispatchQueue.main.async {
+                self.myCollectionView.reloadData()
+            }
         }
     }
     
@@ -36,16 +39,12 @@ class ProfilePhotosViewController: UIViewController, UICollectionViewDelegate, U
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: ProfilePhotosCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "fbPhoto", for: indexPath) as! ProfilePhotosCollectionViewCell
         
-        let imageString = self.profilePhotos[indexPath.row].url
-        
-        guard let imageUrl = URL(string: imageString),
-              let imageData = NSData(contentsOf: imageUrl) else { return cell }
-        let image = UIImage(data: imageData as Data)
-        
-        DispatchQueue.main.async {
+        let urlString = self.profilePhotos[indexPath.row].url
+        let imageUrl = URL(string: urlString)
+    
+        imageServices.getImage(withURL: imageUrl!) { (image) in
             cell.myPhoto.image = image
         }
-        
         return cell
     }
     
@@ -62,7 +61,6 @@ class ProfilePhotosViewController: UIViewController, UICollectionViewDelegate, U
 //MARK: - Navigation
     
     func configureNavigationBar() {
-        
         self.title = "My photos"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "LogOut", style: .done, target: self, action: #selector (didTapLogOut))
     }

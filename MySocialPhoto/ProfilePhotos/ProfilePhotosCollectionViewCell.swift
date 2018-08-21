@@ -10,4 +10,9 @@ import UIKit
 
 class ProfilePhotosCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var myPhoto: UIImageView!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        myPhoto.image = nil
+    }
 }

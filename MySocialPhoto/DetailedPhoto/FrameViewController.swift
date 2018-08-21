@@ -9,13 +9,20 @@
 import UIKit
 
 class FrameViewController: UIViewController {
+    
+    let imageServices = ImageServices()
 
     var imageName: String? {
         didSet {
-            guard let imageName = imageName,
-                  let imageUrl = URL(string: imageName),
-                  let imageData = NSData(contentsOf: imageUrl) else { return }
-            imageView.image = UIImage(data: imageData as Data)
+            guard
+                let imageName = imageName,
+                let imageUrl = URL(string: imageName)
+            else {
+                return
+            }
+            imageServices.getImage(withURL: imageUrl) { (image) in
+                self.imageView.image = image
+            }
         }
     }
     

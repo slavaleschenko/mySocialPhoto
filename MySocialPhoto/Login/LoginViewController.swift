@@ -11,6 +11,7 @@ import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
 
+    let constants = Constants()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,17 +23,19 @@ class LoginViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    func setUpLoginButton() {
+    private func setUpLoginButton() {
         let loginBtn = FBSDKLoginButton()
         loginBtn.delegate = self
-        loginBtn.readPermissions = ["public_profile", "email", "user_photos"]
+        loginBtn.readPermissions = constants.permissions
         loginBtn.center = self.view.center
         self.view.addSubview(loginBtn)
     }

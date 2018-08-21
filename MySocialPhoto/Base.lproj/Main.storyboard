@@ -105,22 +105,6 @@
             </objects>
             <point key="canvasLocation" x="2527" y="129"/>
         </scene>
-        <!--Frame View Controller-->
-        <scene sceneID="KNp-T6-I4p">
-            <objects>
-                <viewController id="0Sy-8p-JLX" customClass="FrameViewController" customModule="MySocialPhoto" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="D0g-rt-mmz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="BG8-9n-zHl"/>
-                    </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kwv-1j-q9d" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3261.5999999999999" y="128.18590704647679"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="yj9-wh-P15">
             <objects>

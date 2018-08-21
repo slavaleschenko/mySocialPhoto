@@ -9,37 +9,47 @@
 import Foundation
 import FBSDKCoreKit
 
+enum ProfilePhotoServiceError: Error {
+    case noToken
+    case networkError
+    case noData
+    case parseError
+    case responseError
+}
+
 class ProfilePhotoServices {
+    
+    let constants = Constants()
 
     typealias JSONDictionary = [String: Any]
+    typealias ProfilePhotoCompletion = (_ profilePhoto: [ProfilePhotosModel]?, _ error: ProfilePhotoServiceError?) -> ()
     
     let defaultSession = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?
     
-    var photoList = [ProfilePhotosModel]()
-    
-    func fetchPhotos(completion: @escaping ([ProfilePhotosModel]) -> ()) {
-        guard (FBSDKAccessToken.current() != nil),
+    func fetchPhotos(completion: @escaping ProfilePhotoCompletion) {
+        guard
+            FBSDKAccessToken.current() != nil,
             let token = FBSDKAccessToken.current().tokenString,
-            let url = URL(string: "https://graph.facebook.com/me/photos?type=uploaded&fields=source&access_token=\(token)") else { return }
+            let url = URL(string: "\(constants.baseURL)" + "\(constants.edge)" + "?" + "type=\(constants.edgeType)" + "&" + "fields=\(constants.fields)" + "&" + "access_token=\(token)")
+        else {
+            completion(nil, .noToken)
+            return
+        }
+        
         dataTask = defaultSession.dataTask(with: url) { [weak self] (data, response, error) in
-            if let error = error {
-                print("DataTask error: " + error.localizedDescription)
+            if error != nil {
+                completion(nil, .networkError)
             } else if let data = data {
-                self?.updatePhotoList(data)
-                DispatchQueue.main.async {
-                    completion(self?.photoList ?? [])
-                }
+                self?.updatePhotoList(data, completion: completion)
             } else {
-                print("ERROR: Problem with response, data, error")
+                completion(nil, .noData)
             }
         }
         dataTask?.resume()
-        
-        return
     }
     
-    fileprivate func updatePhotoList(_ data: Data) {
+    fileprivate func updatePhotoList(_ data: Data, completion: ProfilePhotoCompletion) {
         var response: JSONDictionary?
         
         do {
@@ -50,20 +60,24 @@ class ProfilePhotoServices {
         }
         
         guard let array = response?["data"] as? NSArray else {
-            print("Dictionary does not contain data key\n")
+            completion(nil, .parseError)
             return
         }
+        
+        var photos: [ProfilePhotosModel] = []
+        
         for photo in array {
             if let photo = photo as? JSONDictionary{
                 guard let imageURL = photo["source"] as? String else {
-                    print("Image URL is nil")
+                    completion(nil, .parseError)
                     return
                 }
-                photoList.append(ProfilePhotosModel(url: imageURL))
+                photos.append(ProfilePhotosModel(url: imageURL))
             } else {
-                print("Problem parsing params")
+                completion(nil, .parseError)
             }
         }
+        completion(photos, nil)
     }
 }
 
